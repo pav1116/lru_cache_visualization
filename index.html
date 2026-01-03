@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LRU Cache Visualizer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <h1>LRU Cache Visualization</h1>
+
+    <div class="input-boxes-row">
+        <div class="capacity-wrapper">
+            <div class="capacity-box">
+                <div class="control-panel top-panel" style="flex-direction:column; align-items:center; gap:10px; background:none; box-shadow:none; padding:0; border-radius:0;">
+                    <div style="display:flex; align-items:center; gap:8px; background:none; box-shadow:none; padding:0; border-radius:0;">
+                        <label for="capacity-input" style="font-weight:bold; font-size:1.1rem;">Capacity:</label>
+                        <input type="number" id="capacity-input" placeholder="" value="">
+                    </div>
+                    <div style="display:flex; gap:10px; background:none; box-shadow:none; padding:0; border-radius:0;">
+                        <button class="btn btn-set" onclick="setCapacity()">Set</button>
+                        <button class="btn btn-reset" onclick="resetCache()">Reset</button>
+                    </div>
+                </div>
+            </div>
+            <!-- Status message shown outside and beneath the capacity box -->
+            <div id="status-message" class="status-message"></div>
+        </div>
+        <div class="keyval-box">
+            <div class="control-panel bottom-panel" style="flex-direction:column; align-items:center; gap:10px; background:none; box-shadow:none; padding:0; border-radius:0;">
+                <div style="display:flex; align-items:center; gap:8px; background:none; box-shadow:none; padding:0; border-radius:0;">
+                    <label for="key-input" style="font-weight:bold; font-size:1.1rem;">Key:</label>
+                    <input type="text" id="key-input" placeholder="Key">
+                    <label for="val-input" style="font-weight:bold; font-size:1.1rem; margin-left:12px;">Value:</label>
+                    <input type="text" id="val-input" placeholder="Value">
+                </div>
+                <div style="display:flex; gap:10px; background:none; box-shadow:none; padding:0; border-radius:0;">
+                    <button class="btn btn-put" onclick="handlePut()">PUT</button>
+                    <button class="btn btn-get" onclick="handleGet()">GET</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Status centered beneath both input boxes -->
+    <div class="status-row">
+        <div id="status-message" class="status-message"></div>
+    </div>
+
+    <div class="stats">
+        <span><span class="dot hit-dot">●</span> Hits: <span id="hits" class="stat-text hit">0</span></span>
+        <span><span class="dot miss-dot">●</span> Misses: <span id="misses" class="stat-text miss">0</span></span>
+    </div>
+
+    <div class="legend">LRU (Old) ➡ MRU (New)</div>
+
+    <div id="cache-container"></div>
+
+    
+
+    <script src="script.js"></script>
+</body>
+</html>

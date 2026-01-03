@@ -1,0 +1,180 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to right, #a8edea 0%, #fed6e3 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    padding-top: 20px;
+    color: #2c3e50;
+}
+
+h1 {
+    color: #30336b;
+    font-weight: 900;
+    margin-bottom: 90px;
+    font-size: 2.8rem;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 8px rgba(44,62,80,0.08), 0 1px 4px rgba(44,62,80,0.08);
+    text-align: center;
+    line-height: 1.1;
+}
+
+.control-panel {
+    background: #fdfdf5;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    display: flex;
+    gap: 15px;
+}
+
+input {
+    padding: 6px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 110px;
+    font-size: 0.95rem;
+}
+
+.btn {
+    padding: 7px 16px;
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    font-size: 0.95rem;
+    box-shadow: 0 3px 10px rgba(44,62,80,0.13), 0 1px 4px rgba(44,62,80,0.08);
+}
+
+.btn-set, .btn-put { background-color: #2ecc71; }
+.btn-reset, .btn-get { background-color: #ff7675; }
+
+.btn:hover, .btn:focus {
+    filter: brightness(1.1);
+    transform: scale(1.07);
+    box-shadow: 0 4px 18px rgba(44,62,80,0.18);
+    outline: none;
+}
+.btn:active {
+    filter: brightness(0.95);
+    transform: scale(0.97);
+    box-shadow: 0 2px 8px rgba(44,62,80,0.10);
+}
+
+.stats {
+    display: flex;
+    gap: 90px;
+    align-items: center;
+    justify-content: center;
+    margin: 12px 0 6px 0;
+    font-size: 1.2rem;
+    color: #333;
+    font-weight: bold;
+}
+
+.stats span, .stats .dot, .stat-text.hit, .stat-text.miss {
+    color: #222 !important;
+}
+
+.dot { margin-right: 4px; font-size: 1.1rem; }
+.hit-dot, .miss-dot { color: #222 !important; }
+.hit-dot { color: #2ecc71 !important; }
+
+.stats span:first-child { color: #2ecc71; }
+.stats span:first-child .dot { color: #222 !important; }
+
+.legend { margin: 15px 0; font-weight: 500; font-size: 0.9rem; }
+
+#cache-container {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.cache-item {
+    width: 100px;
+    height: 110px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+}
+
+/* Color Classes */
+.item-old { background-color: #ff9f9f; border: 3px solid #e74c3c; } /* Reddish */
+.item-standard { background-color: #ffffff; border: 3px solid #3498db; } /* White/Blue Border */
+.item-hit { background-color: #b2f2bb; border: 3px solid #2ecc71; } /* Green */
+
+.capacity-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+}
+
+
+.status-row {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-top: 0; /* sit directly above stats */
+    margin-bottom: 6px;
+}
+
+.status-message {
+    font-size: 0.9rem; /* match .legend */
+    font-weight: 700;
+    color: #30336b;
+    height: auto;
+    text-align: center;
+    max-width: 280px; /* narrower so it visually aligns over the stats */
+    font-family: 'Courier New', Courier, monospace;
+    white-space: normal; /* allow wrapping under both boxes */
+    overflow: visible;
+    padding: 0 8px; /* small horizontal padding */
+    /* slight right slide without affecting layout centering; reduced by 1cm as requested */
+    transform: translateX(calc(80px + 3cm));
+}
+
+/* blinking caret while typing */
+@keyframes blink-caret {
+    50% { border-color: transparent; }
+}
+.status-message.typing {
+    border-right: 2px solid rgba(48,51,107,0.9);
+    animation: blink-caret .7s step-end infinite;
+}
+
+.capacity-box, .keyval-box {
+    background: #fdfdf5;
+    padding: 12px 16px;
+    border-radius: 14px;
+    box-shadow: 0 5px 18px rgba(44,62,80,0.13), 0 1px 4px rgba(44,62,80,0.08);
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: fit-content;
+    min-width: 180px;
+    max-width: 350px;
+}
+
+.input-boxes-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 25px;
+    width: 100%;
+}
