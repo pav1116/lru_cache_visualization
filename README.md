@@ -1,4 +1,5 @@
-# lru-cache-visualization
+# lru-cache-visualizer
+
 
 
 An interactive web-based visualization of the **Least Recently Used (LRU) Cache** data structure. This project provides a hands-on way to understand how LRU caches work through a clean, intuitive user interface.
